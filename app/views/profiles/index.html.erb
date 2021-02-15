@@ -1,0 +1,30 @@
+<div class="mb-5 mt-2">
+  <h1 class="text-center">Profiles</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <% @profiles.each do |profile| %>
+    <div class="col">
+        <div class="card border-dark">
+          <div class="card-body text-center">
+            <h3 class="card-title text-center"><%= profile.name %></h3>
+            <hr class="mb-5">
+            <div>
+              <%= link_to 'Biography', profile, class: "btn btn-outline-primary btn-lg" %>
+              <%= link_to "Email", "mailto:" + profile.github, class: "btn btn-outline-danger btn-lg" %>
+              <%= link_to "GitHub", "https://github.com/" + profile.github, class: "btn btn-outline-warning btn-lg" %>
+              <%= link_to "LinkedIn", "https://linkedin.com/in/" + profile.linkedin, class: "btn btn-outline-info btn-lg" %>
+              <%= link_to "Twitter", "https://twitter.com/" + profile.twitter, class: "btn btn-outline-success btn-lg" %>
+            </div>
+            <hr class="mt-5">
+            <div class="text-center">
+              <div class="btn-group">
+                <td><%= link_to 'Edit', edit_profile_path(profile), class: "btn btn-primary" %></td>
+                <td><%= link_to 'Delete', profile, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>

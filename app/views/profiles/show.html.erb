@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+    <%= @profile.name %>
+  </h1>
+  <hr>
+  <h3>
+    <%= @profile.biography %>
+  </h3>
+  <p class="lead">
+    <%= @profile.email %> |
+    <%= "@" + @profile.github %>  | 
+    <%= "@" + @profile.linkedin %>  |  
+    <%= "@" + @profile.twitter %>
+  </p>
+  <br/>
+
+  <%= link_to 'Edit', edit_profile_path(@profile), class:"btn btn-secondary" %>
+  <%= link_to 'Delete', @profile, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+  <%= link_to 'Back', profiles_path, class:"btn btn-dark" %>
+</div>
